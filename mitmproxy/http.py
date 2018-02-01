@@ -1,3 +1,7 @@
+import json
+import sys
+sys.path.append('../')
+from connect import sendDataToFire
 import html
 from typing import Optional
 
@@ -78,6 +82,12 @@ class HTTPRequest(http.Request):
             timestamp_start=request.data.timestamp_start,
             timestamp_end=request.data.timestamp_end,
         )
+        #data = {}
+        #data['time'] = req.timestamp_start
+        #data['host'] = req.host
+        #data['path'] = req.path
+        #json_data = json.dumps(data)
+        #sendDataToFire(json_data)
         return req
 
     def __hash__(self):
